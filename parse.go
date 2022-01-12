@@ -1,6 +1,9 @@
 package envconfig
 
-import "strconv"
+import (
+	"strconv"
+	"time"
+)
 
 func parseBool(str string) (bool, error) {
 	result, err := strconv.ParseBool(str)
@@ -17,4 +20,8 @@ func parseUint64(str string) (uint64, error) {
 
 func parseFloat64(str string) (float64, error) {
 	return strconv.ParseFloat(str, 64)
+}
+
+func parseDuration(str string) (time.Duration, error) {
+	return time.ParseDuration(str)
 }
